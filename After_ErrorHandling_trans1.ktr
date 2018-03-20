@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <transformation>
   <info>
-    <name>trans2</name>
+    <name>After_ErrorHandling_trans1</name>
     <description/>
     <extended_description/>
     <trans_version/>
@@ -66,10 +66,10 @@
     <clusterschemas>
     </clusterschemas>
   <created_user>-</created_user>
-  <created_date>2018&#x2f;03&#x2f;13 18&#x3a;04&#x3a;57.096</created_date>
+  <created_date>2018&#x2f;03&#x2f;20 13&#x3a;45&#x3a;23.174</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2018&#x2f;03&#x2f;13 18&#x3a;04&#x3a;57.096</modified_date>
-    <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA&#x3d;</key_for_session_key>
+  <modified_date>2018&#x2f;03&#x2f;20 13&#x3a;45&#x3a;23.174</modified_date>
+    <key_for_session_key/>
     <is_key_private>N</is_key_private>
   </info>
   <notepads>
@@ -100,14 +100,20 @@
     </attributes>
   </connection>
   <order>
-  <hop> <from>Table input</from><to>select_tableName</to><enabled>Y</enabled> </hop>
+  <hop> <from>Block this step until steps finish</from><to>Select values 2</to><enabled>Y</enabled> </hop>
+  <hop> <from>Block this step until steps finish 2</from><to>Select values</to><enabled>Y</enabled> </hop>
+  <hop> <from>Block this step until steps finish 3</from><to>Select values 5</to><enabled>Y</enabled> </hop>
+  <hop> <from>Block this step until steps finish 4</from><to>Select values 4</to><enabled>Y</enabled> </hop>
+  <hop> <from>Select values</from><to>Microsoft Excel Writer 2</to><enabled>Y</enabled> </hop>
+  <hop> <from>Select values 2</from><to>Microsoft Excel Writer 3</to><enabled>Y</enabled> </hop>
+  <hop> <from>Select values 3</from><to>Microsoft Excel Writer</to><enabled>Y</enabled> </hop>
+  <hop> <from>Select values 4</from><to>Microsoft Excel Writer 4</to><enabled>Y</enabled> </hop>
+  <hop> <from>Select values 5</from><to>Microsoft Excel Writer 5</to><enabled>Y</enabled> </hop>
+  <hop> <from>Table input</from><to>Block this step until steps finish 3</to><enabled>Y</enabled> </hop>
+  <hop> <from>Table input</from><to>Block this step until steps finish 4</to><enabled>Y</enabled> </hop>
+  <hop> <from>Table input</from><to>Select values 3</to><enabled>Y</enabled> </hop>
   <hop> <from>Table input</from><to>Block this step until steps finish 2</to><enabled>Y</enabled> </hop>
   <hop> <from>Table input</from><to>Block this step until steps finish</to><enabled>Y</enabled> </hop>
-  <hop> <from>select_tableName</from><to>Microsoft Excel Writer 2 2</to><enabled>Y</enabled> </hop>
-  <hop> <from>Select values</from><to>Microsoft Excel Writer 2</to><enabled>Y</enabled> </hop>
-  <hop> <from>Block this step until steps finish 2</from><to>Select values</to><enabled>Y</enabled> </hop>
-  <hop> <from>DataSource</from><to>Microsoft Excel Writer 2 2 2</to><enabled>Y</enabled> </hop>
-  <hop> <from>Block this step until steps finish</from><to>DataSource</to><enabled>Y</enabled> </hop>
   </order>
   <step>
     <name>Block this step until steps finish</name>
@@ -122,14 +128,14 @@
            </partitioning>
     <steps>
       <step>
-        <name>Microsoft Excel Writer 2 2</name>
+        <name>Microsoft Excel Writer 2</name>
         <CopyNr>0</CopyNr>
         </step>
       </steps>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>304</xloc>
-      <yloc>160</yloc>
+      <xloc>224</xloc>
+      <yloc>432</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -147,21 +153,21 @@
            </partitioning>
     <steps>
       <step>
-        <name>Microsoft Excel Writer 2 2 2</name>
+        <name>Microsoft Excel Writer 5</name>
         <CopyNr>0</CopyNr>
         </step>
       </steps>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>240</xloc>
-      <yloc>256</yloc>
+      <xloc>336</xloc>
+      <yloc>352</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
 
   <step>
-    <name>DataSource</name>
-    <type>SelectValues</type>
+    <name>Block this step until steps finish 3</name>
+    <type>BlockUntilStepsFinish</type>
     <description/>
     <distribute>Y</distribute>
     <custom_distribution/>
@@ -170,15 +176,100 @@
            <method>none</method>
            <schema_name/>
            </partitioning>
-    <fields>      <field>        <name>dataSource</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>        <select_unspecified>N</select_unspecified>
-    </fields>     <cluster_schema/>
+    <steps>
+      <step>
+        <name>Microsoft Excel Writer 4</name>
+        <CopyNr>0</CopyNr>
+        </step>
+      </steps>
+     <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>416</xloc>
-      <yloc>160</yloc>
+      <xloc>352</xloc>
+      <yloc>256</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Block this step until steps finish 4</name>
+    <type>BlockUntilStepsFinish</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <steps>
+      <step>
+        <name>Microsoft Excel Writer</name>
+        <CopyNr>0</CopyNr>
+        </step>
+      </steps>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>336</xloc>
+      <yloc>192</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Microsoft Excel Writer</name>
+    <type>TypeExitExcelWriterStep</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <header>N</header>
+    <footer>N</footer>
+    <makeSheetActive>Y</makeSheetActive>
+    <rowWritingMethod>overwrite</rowWritingMethod>
+    <startingCell>A50</startingCell>
+    <appendOmitHeader>N</appendOmitHeader>
+    <appendOffset>0</appendOffset>
+    <appendEmpty>0</appendEmpty>
+    <rowWritingMethod>overwrite</rowWritingMethod>
+    <forceFormulaRecalculation>N</forceFormulaRecalculation>
+    <leaveExistingStylesUnchanged>N</leaveExistingStylesUnchanged>
+    <appendLines>N</appendLines>
+    <add_to_result_filenames>Y</add_to_result_filenames>
+    <file>
+      <name>D&#x3a;&#x5c;Demo&#x5c;data</name>
+      <extention>xls</extention>
+      <do_not_open_newfile_init>N</do_not_open_newfile_init>
+      <split>N</split>
+      <add_date>N</add_date>
+      <add_time>N</add_time>
+      <SpecifyFormat>N</SpecifyFormat>
+      <date_time_format/>
+      <sheetname>Sheet1</sheetname>
+      <autosizecolums>N</autosizecolums>
+      <stream_data>N</stream_data>
+      <protect_sheet>N</protect_sheet>
+      <password>Encrypted </password>
+      <protected_by/>
+      <splitevery>0</splitevery>
+      <if_file_exists>reuse</if_file_exists>
+      <if_sheet_exists>reuse</if_sheet_exists>
+      </file>
+    <template>
+      <enabled>N</enabled>
+      <sheet_enabled>N</sheet_enabled>
+      <filename>template.xls</filename>
+      <sheetname/>
+    </template>
+    <fields>
+    </fields>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>496</xloc>
+      <yloc>80</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -187,7 +278,66 @@
     <name>Microsoft Excel Writer 2</name>
     <type>TypeExitExcelWriterStep</type>
     <description/>
-    <distribute>N</distribute>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <header>N</header>
+    <footer>N</footer>
+    <makeSheetActive>Y</makeSheetActive>
+    <rowWritingMethod>overwrite</rowWritingMethod>
+    <startingCell>A53</startingCell>
+    <appendOmitHeader>N</appendOmitHeader>
+    <appendOffset>0</appendOffset>
+    <appendEmpty>0</appendEmpty>
+    <rowWritingMethod>overwrite</rowWritingMethod>
+    <forceFormulaRecalculation>N</forceFormulaRecalculation>
+    <leaveExistingStylesUnchanged>N</leaveExistingStylesUnchanged>
+    <appendLines>N</appendLines>
+    <add_to_result_filenames>Y</add_to_result_filenames>
+    <file>
+      <name>D&#x3a;&#x5c;Demo&#x5c;data</name>
+      <extention>xls</extention>
+      <do_not_open_newfile_init>N</do_not_open_newfile_init>
+      <split>N</split>
+      <add_date>N</add_date>
+      <add_time>N</add_time>
+      <SpecifyFormat>N</SpecifyFormat>
+      <date_time_format/>
+      <sheetname>Sheet1</sheetname>
+      <autosizecolums>N</autosizecolums>
+      <stream_data>N</stream_data>
+      <protect_sheet>N</protect_sheet>
+      <password>Encrypted </password>
+      <protected_by/>
+      <splitevery>0</splitevery>
+      <if_file_exists>reuse</if_file_exists>
+      <if_sheet_exists>reuse</if_sheet_exists>
+      </file>
+    <template>
+      <enabled>N</enabled>
+      <sheet_enabled>N</sheet_enabled>
+      <filename>template.xls</filename>
+      <sheetname/>
+    </template>
+    <fields>
+    </fields>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>576</xloc>
+      <yloc>336</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Microsoft Excel Writer 3</name>
+    <type>TypeExitExcelWriterStep</type>
+    <description/>
+    <distribute>Y</distribute>
     <custom_distribution/>
     <copies>1</copies>
          <partitioning>
@@ -198,7 +348,7 @@
     <footer>N</footer>
     <makeSheetActive>Y</makeSheetActive>
     <rowWritingMethod>overwrite</rowWritingMethod>
-    <startingCell>A9</startingCell>
+    <startingCell>A54</startingCell>
     <appendOmitHeader>N</appendOmitHeader>
     <appendOffset>0</appendOffset>
     <appendEmpty>0</appendEmpty>
@@ -206,7 +356,7 @@
     <forceFormulaRecalculation>N</forceFormulaRecalculation>
     <leaveExistingStylesUnchanged>N</leaveExistingStylesUnchanged>
     <appendLines>N</appendLines>
-    <add_to_result_filenames>N</add_to_result_filenames>
+    <add_to_result_filenames>Y</add_to_result_filenames>
     <file>
       <name>D&#x3a;&#x5c;Demo&#x5c;data</name>
       <extention>xls</extention>
@@ -236,17 +386,17 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>640</xloc>
-      <yloc>224</yloc>
+      <xloc>528</xloc>
+      <yloc>432</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
 
   <step>
-    <name>Microsoft Excel Writer 2 2</name>
+    <name>Microsoft Excel Writer 4</name>
     <type>TypeExitExcelWriterStep</type>
     <description/>
-    <distribute>N</distribute>
+    <distribute>Y</distribute>
     <custom_distribution/>
     <copies>1</copies>
          <partitioning>
@@ -257,7 +407,7 @@
     <footer>N</footer>
     <makeSheetActive>Y</makeSheetActive>
     <rowWritingMethod>overwrite</rowWritingMethod>
-    <startingCell>A7</startingCell>
+    <startingCell>A51</startingCell>
     <appendOmitHeader>N</appendOmitHeader>
     <appendOffset>0</appendOffset>
     <appendEmpty>0</appendEmpty>
@@ -265,7 +415,7 @@
     <forceFormulaRecalculation>N</forceFormulaRecalculation>
     <leaveExistingStylesUnchanged>N</leaveExistingStylesUnchanged>
     <appendLines>N</appendLines>
-    <add_to_result_filenames>N</add_to_result_filenames>
+    <add_to_result_filenames>Y</add_to_result_filenames>
     <file>
       <name>D&#x3a;&#x5c;Demo&#x5c;data</name>
       <extention>xls</extention>
@@ -295,17 +445,17 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>464</xloc>
-      <yloc>48</yloc>
+      <xloc>560</xloc>
+      <yloc>160</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
 
   <step>
-    <name>Microsoft Excel Writer 2 2 2</name>
+    <name>Microsoft Excel Writer 5</name>
     <type>TypeExitExcelWriterStep</type>
     <description/>
-    <distribute>N</distribute>
+    <distribute>Y</distribute>
     <custom_distribution/>
     <copies>1</copies>
          <partitioning>
@@ -316,7 +466,7 @@
     <footer>N</footer>
     <makeSheetActive>Y</makeSheetActive>
     <rowWritingMethod>overwrite</rowWritingMethod>
-    <startingCell>A8</startingCell>
+    <startingCell>A52</startingCell>
     <appendOmitHeader>N</appendOmitHeader>
     <appendOffset>0</appendOffset>
     <appendEmpty>0</appendEmpty>
@@ -324,7 +474,7 @@
     <forceFormulaRecalculation>N</forceFormulaRecalculation>
     <leaveExistingStylesUnchanged>N</leaveExistingStylesUnchanged>
     <appendLines>N</appendLines>
-    <add_to_result_filenames>N</add_to_result_filenames>
+    <add_to_result_filenames>Y</add_to_result_filenames>
     <file>
       <name>D&#x3a;&#x5c;Demo&#x5c;data</name>
       <extention>xls</extention>
@@ -355,7 +505,7 @@
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
       <xloc>592</xloc>
-      <yloc>112</yloc>
+      <yloc>240</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -371,106 +521,130 @@
            <method>none</method>
            <schema_name/>
            </partitioning>
-    <fields>      <field>        <name>ID</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>UUID</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>SITE_UUID_DEPRECATED</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>CLIENT_DIVISION_SCHEME_UUID</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>NAME</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>MAIN_ADDRESS_ID</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>SITE_NUMBER</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>PHONE_DEPRECATED</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>CREATED_AT</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>UPDATED_AT</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>FAX_DEPRECATED</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>HEALTH_CARE_FACILITY_UUID</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>LEGACY_ATTRIBUTES</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>SOURCE_SYSTEM_ID</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>VALIDATION_STATUS</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>INVALID_REASON_ID</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>LEGACY_ID</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>LEGACY_UUID</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>PARENT_UUID</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>COMMON_NAME</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>INDUSTRY_TYPES_BIT</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>ACTIVE</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>PARTY_UUID</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>CLIENT_DIVISION_UUID</name>
+    <fields>      <field>        <name>DATASOURCE</name>
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
       </field>        <select_unspecified>N</select_unspecified>
     </fields>     <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>400</xloc>
+      <xloc>464</xloc>
+      <yloc>352</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Select values 2</name>
+    <type>SelectValues</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <fields>      <field>        <name>TRANS_NAME</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>ENTITY_NAME</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>SOURCE_UUID</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>ERR_CODE</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>ERR_DESCRIPTION</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>ERR_CREATED_AT</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>        <select_unspecified>N</select_unspecified>
+    </fields>     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>368</xloc>
+      <yloc>464</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Select values 3</name>
+    <type>SelectValues</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <fields>      <field>        <name>MAINSTEP</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>        <select_unspecified>N</select_unspecified>
+    </fields>     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>288</xloc>
+      <yloc>112</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Select values 4</name>
+    <type>SelectValues</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <fields>      <field>        <name>STEP</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>        <select_unspecified>N</select_unspecified>
+    </fields>     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>432</xloc>
+      <yloc>160</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Select values 5</name>
+    <type>SelectValues</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <fields>      <field>        <name>TABLENAME</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>        <select_unspecified>N</select_unspecified>
+    </fields>     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>464</xloc>
       <yloc>256</yloc>
       <draw>Y</draw>
       </GUI>
@@ -488,7 +662,7 @@
            <schema_name/>
            </partitioning>
     <connection>DB_MEDS</connection>
-    <sql>SELECT pylon_cd_organizations_stg.&#x2a;,&#x27;&#x24;Table&#x28;pylon_cd_organizations_stg&#x29;&#x27; AS tableName, &#x27;&#x24;DataSource&#x28;DB_MEDS&#x29;&#x27; as dataSource FROM work.pylon_cd_organizations_stg</sql>
+    <sql>select MEDS_ODS_ERR.&#x2a;,&#x27;&#x24;Test&#x28;ErrorHandling&#x29;&#x27; AS mainStep,&#x27;&#x24;AFTER&#x27; AS Step,&#x27;&#x24;Table&#x28;MEDS_ODS_ERR&#x29;&#x27; AS tableName,&#x27;&#x24;DataSource&#x28;DB_MEDS&#x29;&#x27; as dataSource from stage.MEDS_ODS_ERR where ENTITY_NAME&#x3d;&#x27;HCRFAC&#x27;</sql>
     <limit>1</limit>
     <lookup/>
     <execute_each_row>N</execute_each_row>
@@ -497,31 +671,7 @@
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
       <xloc>144</xloc>
-      <yloc>112</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>select_tableName</name>
-    <type>SelectValues</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-    <fields>      <field>        <name>tableName</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>        <select_unspecified>N</select_unspecified>
-    </fields>     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>272</xloc>
-      <yloc>80</yloc>
+      <yloc>240</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
